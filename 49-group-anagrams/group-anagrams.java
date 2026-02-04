@@ -2,12 +2,13 @@ class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> map = new HashMap<>();
 
-        for (int i = 0; i < strs.length; i++){
+        for (int i = 0; i< strs.length; i++){
             String word = strs[i];
 
             int[] count = new int[26];
-            for (int j = 0; j< word.length(); j++){
+            for (int j = 0; j < word.length(); j++){
                 char c = word.charAt(j);
+
                 count[c - 'a']++;
             }
 
@@ -28,6 +29,5 @@ class Solution {
         }
 
         return res;
-        
     }
 }
