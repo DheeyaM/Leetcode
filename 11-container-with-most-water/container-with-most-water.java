@@ -5,15 +5,14 @@ class Solution {
         int max = 0;
 
         while (l < r){
-            int area = Math.min(height[l], height[r]) * (r-l);
+            int area = Math.min(height[l], height[r]) * (r - l);
             max = Math.max(max, area);
             if (height[l] < height[r]){
-                l++; 
+                l++;
             } else {
                 r--;
             }
         }
-
         return max;
     }
 }
