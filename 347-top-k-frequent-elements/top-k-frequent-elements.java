@@ -4,13 +4,13 @@ class Solution {
 
         for (int num : nums){
             if (!map.containsKey(num)){
-                map.put(num, 1);
+                map.put(num,1);
             } else {
                 map.put(num, map.get(num) + 1);
             }
         }
 
-        List<Integer>[] bucket = new List[nums.length + 1];
+        List<Integer>[] bucket = new ArrayList[nums.length + 1];
 
         for (int key : map.keySet()){
             int freq = map.get(key);
@@ -21,17 +21,17 @@ class Solution {
         }
 
         int count = 0;
-        int[] res =  new int[k];
+        int[] res = new int[k];
 
-        for (int i = bucket.length -1; i >= 0 && count < k; i--){
+        for (int i = bucket.length - 1; i >= 0 && count < k; i--){
             if (bucket[i] != null){
-                for (int num : bucket[i]){
-                    res[count++] = num;
-                }
+            for (int num : bucket[i]){
+                res[count++] = num;
+            }
             }
         }
 
-        return res;
-        
+return res;
+
     }
 }
