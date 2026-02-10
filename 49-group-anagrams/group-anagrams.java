@@ -6,27 +6,30 @@ class Solution {
             String word = strs[i];
 
             int[] count = new int[26];
-            for (int j = 0; j < word.length(); j++){
-                char c = word.charAt(j);
+
+            for (int k = 0; k < word.length() ; k++){
+                char c = word.charAt(k);
                 count[c - 'a']++;
             }
 
             String key = "";
-            for (int k =0; k < count.length; k++){
-                key += count[k] + "#";
+            for (int l = 0; l < count.length; l++){
+                key += count[l] + "#";
             }
 
             if (!map.containsKey(key)){
                 map.put(key, new ArrayList<>());
             }
             map.get(key).add(word);
-
         }
-
         List<List<String>> res = new ArrayList<>();
-        for (List<String> group : map.values()){
-            res.add(group);
-        }
-        return res;
+       for (List<String> group : map.values()){
+        res.add(group);
+       }
+
+       return res;
+
+        
+        
     }
 }
