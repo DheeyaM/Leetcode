@@ -7,14 +7,14 @@ class Solution {
 
             int[] count = new int[26];
 
-            for (int k = 0; k < word.length() ; k++){
+            for (int k = 0; k <word.length() ; k++){
                 char c = word.charAt(k);
                 count[c - 'a']++;
             }
 
             String key = "";
-            for (int l = 0; l < count.length; l++){
-                key += count[l] + "#";
+            for (int j = 0 ; j < count.length; j++){
+                key += count[j] + "#";
             }
 
             if (!map.containsKey(key)){
@@ -22,14 +22,11 @@ class Solution {
             }
             map.get(key).add(word);
         }
+
         List<List<String>> res = new ArrayList<>();
-       for (List<String> group : map.values()){
-        res.add(group);
-       }
-
-       return res;
-
-        
-        
+        for (List<String> group : map.values()){
+            res.add(group);
+        }
+        return res;
     }
 }
