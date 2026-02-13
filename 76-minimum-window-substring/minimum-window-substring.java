@@ -15,12 +15,11 @@ class Solution {
             }
         }
 
-
         int startIndex = 0;
         int l = 0;
-        int required = tmap.size();
-        int satisfied = 0;
         int minLen = Integer.MAX_VALUE;
+        int satisfied = 0;
+        int required = tmap.size();
 
         for (int r = 0; r < s.length(); r++){
             char c = s.charAt(r);
@@ -44,14 +43,14 @@ class Solution {
                 char removed = s.charAt(l);
                 if (tmap.containsKey(removed)){
                     window.put(removed, window.get(removed) -1);
+
                     if (window.get(removed) < tmap.get(removed)){
                         satisfied--;
-                    }
+                    }   
                 }
                 l++;
-
-                
             }
+
         }
         if (minLen == Integer.MAX_VALUE){
             return "";
