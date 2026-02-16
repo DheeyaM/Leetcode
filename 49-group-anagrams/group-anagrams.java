@@ -6,15 +6,14 @@ class Solution {
             String word = strs[i];
 
             int[] count = new int[26];
-
-            for (int k = 0; k <word.length() ; k++){
-                char c = word.charAt(k);
+            for (int j = 0; j < word.length(); j++){
+                char c = word.charAt(j);
                 count[c - 'a']++;
             }
 
             String key = "";
-            for (int j = 0 ; j < count.length; j++){
-                key += count[j] + "#";
+            for (int l = 0; l < count.length; l++){
+                key += count[l] + "#";
             }
 
             if (!map.containsKey(key)){
@@ -22,11 +21,11 @@ class Solution {
             }
             map.get(key).add(word);
         }
-
         List<List<String>> res = new ArrayList<>();
         for (List<String> group : map.values()){
             res.add(group);
         }
+
         return res;
     }
 }
