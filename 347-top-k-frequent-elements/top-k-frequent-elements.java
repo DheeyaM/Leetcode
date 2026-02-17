@@ -4,7 +4,7 @@ class Solution {
 
         for (int num : nums){
             if (!map.containsKey(num)){
-                map.put(num,1);
+                map.put(num, 1);
             } else {
                 map.put(num, map.get(num) + 1);
             }
@@ -20,18 +20,17 @@ class Solution {
             bucket[freq].add(key);
         }
 
-        int count = 0;
         int[] res = new int[k];
+        int count = 0;
 
-        for (int i = bucket.length - 1; i >= 0 && count < k; i--){
-            if (bucket[i] != null){
-            for (int num : bucket[i]){
-                res[count++] = num;
+        for (int j = bucket.length - 1; j > 0 && count < k; j-- ){
+            if (bucket[j] != null){
+                for (int num: bucket[j]){
+                    res[count++] = num;
+                }
             }
-            }
+
         }
-
-return res;
-
+        return res;
     }
 }
